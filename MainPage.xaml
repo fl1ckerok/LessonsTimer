@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LessonsTimer.MainPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Settings" IconImageSource="Image/settings.svg" Clicked="SettingsClicked" />
+    </ContentPage.ToolbarItems>
+    
+    
+    <StackLayout>
+
+        <Frame CornerRadius="30" BackgroundColor="#584D6F" HorizontalOptions="Center" Margin="-210,20,0,5">
+            <Label HorizontalTextAlignment="Center" TextColor="White" Text="Сьогодні" Margin="0,-15,0,0" />
+        </Frame>
+
+        <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0">
+            <VerticalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label Text="До кінця " />
+                    <Label x:Name="nameLesson" Text="X " />
+                    <Label Text="залишилось:" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label x:Name="timeEndLesson" FontSize="60">54</Label>
+                    <Label Margin="0,50,0,0">хв.</Label>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+        </Frame>
+
+    </StackLayout>
+    
+</ContentPage>
