@@ -18,11 +18,11 @@
             <VerticalStackLayout>
                 <HorizontalStackLayout HorizontalOptions="Center">
                     <Label Text="До кінця " />
-                    <Label x:Name="nameLesson" Text="X " />
+                    <Label x:Name="nameLesson" Text=" " />
                     <Label Text="залишилось:" />
                 </HorizontalStackLayout>
                 <HorizontalStackLayout HorizontalOptions="Center">
-                    <Label x:Name="timeEndLesson" FontSize="60">54</Label>
+                    <Label x:Name="timeEndLesson" FontSize="60"></Label>
                     <Label Margin="0,50,0,0">хв.</Label>
                 </HorizontalStackLayout>
             </VerticalStackLayout>

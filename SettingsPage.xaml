@@ -4,4 +4,401 @@
              x:Class="LessonsTimer.SettingsPage"
              Title="Settings">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Apply" IconImageSource="Image/check.svg" Clicked="ApplyClicked" />
+        <ToolbarItem Text="Profile" IconImageSource="Image/user.svg" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <StackLayout>
+
+            <StackLayout x:Name="Monday">
+
+                <HorizontalStackLayout Margin="0,0,0,0">
+                    <!-- Margin="40,20,-245,5"-->
+                    <Frame CornerRadius="30" BackgroundColor="#584D6F" HorizontalOptions="Center" Margin="40,20,-245,5">
+                        <Label HorizontalTextAlignment="Center" TextColor="White" Text="Понеділок" Margin="0,-15,0,0" />
+                    </Frame>
+
+                    <HorizontalStackLayout Margin="0,0,0,13">
+                        <ImageButton x:Name="MondayButton" Source="Image/add.svg" Aspect="Fill" HeightRequest="25" WidthRequest="25" Margin="243,0,0,0" Clicked="ClickAdd"></ImageButton>
+                        <ImageButton x:Name="MondayTrash" Source="Image/trash.svg" Aspect="Fill" HeightRequest="25" WidthRequest="25" Margin="10,0,0,0" Clicked="ClickDel"></ImageButton>
+                    </HorizontalStackLayout>
+                    
+                </HorizontalStackLayout>
+
+                <Frame x:Name="MondayFirst" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="MondaySecond" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="MondayThird" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="MondayFourth" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="MondayFifth" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+            <StackLayout x:Name="Tuesday">
+
+                <HorizontalStackLayout>
+
+                    <Frame CornerRadius="30" BackgroundColor="#584D6F" HorizontalOptions="Center" Margin="40,20,-245,5">
+                        <Label HorizontalTextAlignment="Center" TextColor="White" Text="Вівторок" Margin="0,-15,0,0" />
+                    </Frame>
+                    <HorizontalStackLayout Margin="0,0,0,13">
+                        <ImageButton x:Name="TuesdayButton" Source="Image/add.svg" Aspect="Fill" HeightRequest="25" WidthRequest="25" Margin="243,0,0,0" Clicked="ClickAdd"></ImageButton>
+                        <ImageButton x:Name="TuesdayTrash" Source="Image/trash.svg" Aspect="Fill" HeightRequest="25" WidthRequest="25" Margin="10,0,0,0" Clicked="ClickDel"></ImageButton>
+                    </HorizontalStackLayout>
+
+                </HorizontalStackLayout>
+
+                <Frame x:Name="TuesdayFirst" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="TuesdaySecond" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="TuesdayThird" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="TuesdayFourth" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="TuesdayFifth" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout x:Name="Wednesday">
+                <HorizontalStackLayout>
+
+                    <Frame CornerRadius="30" BackgroundColor="#584D6F" HorizontalOptions="Center" Margin="40,20,-245,5">
+                        <Label HorizontalTextAlignment="Center" TextColor="White" Text="Середа" Margin="0,-15,0,0" />
+                    </Frame>
+                    <HorizontalStackLayout Margin="0,0,0,13">
+                        <ImageButton x:Name="WednesdayButton" Source="Image/add.svg" Aspect="Fill" HeightRequest="25" WidthRequest="25" Margin="243,0,0,0" Clicked="ClickAdd"></ImageButton>
+                        <ImageButton x:Name="WednesdayTrash" Source="Image/trash.svg" Aspect="Fill" HeightRequest="25" WidthRequest="25" Margin="10,0,0,0" Clicked="ClickDel"></ImageButton>
+                    </HorizontalStackLayout>
+
+                </HorizontalStackLayout>
+
+                <Frame x:Name="WednesdayFirst" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="WednesdaySecond" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="WednesdayThird" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="WednesdayFourth" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="WednesdayFifth" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout x:Name="Thursday">
+                <HorizontalStackLayout>
+
+                    <Frame CornerRadius="30" BackgroundColor="#584D6F" HorizontalOptions="Center" Margin="40,20,-245,5">
+                        <Label HorizontalTextAlignment="Center" TextColor="White" Text="Четвер" Margin="0,-15,0,0" />
+                    </Frame>
+                    <HorizontalStackLayout Margin="0,0,0,13">
+                        <ImageButton x:Name="ThursdayButton" Source="Image/add.svg" Aspect="Fill" HeightRequest="25" WidthRequest="25" Margin="243,0,0,0" Clicked="ClickAdd"></ImageButton>
+                        <ImageButton x:Name="ThursdayTrash" Source="Image/trash.svg" Aspect="Fill" HeightRequest="25" WidthRequest="25" Margin="10,0,0,0" Clicked="ClickDel"></ImageButton>
+                    </HorizontalStackLayout>
+
+                </HorizontalStackLayout>
+
+                <Frame x:Name="ThursdayFirst" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="ThursdaySecond" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="ThursdayThird" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="ThursdayFourth" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="ThursdayFifth" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout x:Name="Friday">
+                <HorizontalStackLayout>
+
+                    <Frame CornerRadius="30" BackgroundColor="#584D6F" HorizontalOptions="Center" Margin="40,20,-245,5">
+                        <Label HorizontalTextAlignment="Center" TextColor="White" Text="П'ятниця" Margin="0,-15,0,0" />
+                    </Frame>
+                    <HorizontalStackLayout Margin="0,0,0,13">
+                        <ImageButton x:Name="FridayButton" Source="Image/add.svg" Aspect="Fill" HeightRequest="25" WidthRequest="25" Margin="243,0,0,0" Clicked="ClickAdd"></ImageButton>
+                        <ImageButton x:Name="FridayTrash" Source="Image/trash.svg" Aspect="Fill" HeightRequest="25" WidthRequest="25" Margin="10,0,0,0" Clicked="ClickDel"></ImageButton>
+                    </HorizontalStackLayout>
+
+                </HorizontalStackLayout>
+
+                <Frame x:Name="FridayFirst" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="FridaySecond" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="FridayThird" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="FridayFourth" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="FridayFifth" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout x:Name="Saturday">
+                <HorizontalStackLayout>
+
+                    <Frame CornerRadius="30" BackgroundColor="#584D6F" HorizontalOptions="Center" Margin="40,20,-245,5">
+                        <Label HorizontalTextAlignment="Center" TextColor="White" Text="Субота" Margin="0,-15,0,0" />
+                    </Frame>
+                    <HorizontalStackLayout Margin="0,0,0,13">
+                        <ImageButton x:Name="SaturdayButton" Source="Image/add.svg" Aspect="Fill" HeightRequest="25" WidthRequest="25" Margin="243,0,0,0" Clicked="ClickAdd"></ImageButton>
+                        <ImageButton x:Name="SaturdayTrash" Source="Image/trash.svg" Aspect="Fill" HeightRequest="25" WidthRequest="25" Margin="10,0,0,0" Clicked="ClickDel"></ImageButton>
+                    </HorizontalStackLayout>
+
+                </HorizontalStackLayout>
+
+                <Frame x:Name="SaturdayFirst" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="SaturdaySecond" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="SaturdayThird" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="SaturdayFourth" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="SaturdayFifth" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="False">
+                    <StackLayout>
+                        <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
+                        <Label>Початок:</Label>
+                        <TimePicker/>
+                        <Label>Кінець:</Label>
+                        <TimePicker/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+        </StackLayout>
+
+    </ScrollView>
+
+
+
 </ContentPage>
