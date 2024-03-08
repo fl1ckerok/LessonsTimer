@@ -6,175 +6,19 @@ namespace LessonsTimer;
 
 public partial class SettingsPage : ContentPage
 {
-    //VerticalStackLayout monBody;
-    //VerticalStackLayout tueBody;
-    //VerticalStackLayout wedBody;
-    //VerticalStackLayout thuBody;
-    //VerticalStackLayout friBody;
-    //VerticalStackLayout satBody;
-
-
-    //ImageButton butMon = new ImageButton() { Source = "Image/settings.svg" };
-    //ImageButton butTue = new ImageButton() { Source = "Image/settings.svg" };
-    //ImageButton butWed = new ImageButton() { Source = "Image/settings.svg" };
-    //ImageButton butThu = new ImageButton() { Source = "Image/settings.svg" };
-    //ImageButton butFri = new ImageButton() { Source = "Image/settings.svg" };
-    //ImageButton butSat = new ImageButton() { Source = "Image/settings.svg" };
-
-
     public SettingsPage()
     {
         InitializeComponent();
-
-    //    StackLayout Week = new();
-
-    //    StackLayout mondayCase = new();
-    //    StackLayout tuesdayCase = new();
-    //    StackLayout wednesdayCase = new();
-    //    StackLayout thursdayCase = new();
-    //    StackLayout fridayCase = new();
-    //    StackLayout saturdayCase = new();
-
-    //    HorizontalStackLayout monHeader = new();
-    //    HorizontalStackLayout tueHeader = new();
-    //    HorizontalStackLayout wedHeader = new();
-    //    HorizontalStackLayout thuHeader = new();
-    //    HorizontalStackLayout friHeader = new();
-    //    HorizontalStackLayout satHeader = new();
-
-    //    monBody = new();
-    //    tueBody = new();
-    //    wedBody = new();
-    //    thuBody = new();
-    //    friBody = new();
-    //    satBody = new();
-
-    //    Label Monday = new Label { Text = "Понеділок", FontSize=40 };
-    //    Label Tuesday = new Label { Text = "Вівторок", FontSize = 40 };
-    //    Label Wednesday = new Label { Text = "Середа", FontSize = 40 };
-    //    Label Thursday = new Label { Text = "Четвер", FontSize = 40 };
-    //    Label Friday = new Label { Text = "П'ятниця", FontSize = 40 };
-    //    Label Saturday = new Label { Text = "Субота", FontSize = 40 };
-
-
-    //    butMon.Clicked += addObj;
-    //    butTue.Clicked += addObj;
-    //    butWed.Clicked += addObj;
-    //    butThu.Clicked += addObj;
-    //    butFri.Clicked += addObj;
-    //    butSat.Clicked += addObj;
-
-
-
-    //    monHeader.Children.Add(Monday);
-    //    monHeader.Children.Add(butMon);
-
-    //    tueHeader.Children.Add(Tuesday);
-    //    tueHeader.Children.Add(butTue);
-
-    //    wedHeader.Children.Add(Wednesday);
-    //    wedHeader.Children.Add(butWed);
-
-    //    thuHeader.Children.Add(Thursday);
-    //    thuHeader.Children.Add(butThu);
-
-    //    friHeader.Children.Add(Friday);
-    //    friHeader.Children.Add(butFri);
-
-    //    satHeader.Children.Add(Saturday);
-    //    satHeader.Children.Add(butSat);
-
-    //    // Sborka
-
-    //    mondayCase.Children.Add(monHeader);
-    //    mondayCase.Children.Add(monBody);
-
-    //    tuesdayCase.Children.Add(tueHeader);
-    //    tuesdayCase.Children.Add(tueBody);
-
-    //    wednesdayCase.Children.Add(wedHeader);
-    //    wednesdayCase.Children.Add(wedBody);
-
-    //    thursdayCase.Children.Add(thuHeader);
-    //    thursdayCase.Children.Add(thuBody);
-
-
-    //    fridayCase.Children.Add(friHeader);
-    //    fridayCase.Children.Add(friBody);
-
-
-    //    saturdayCase.Children.Add(satHeader);
-    //    saturdayCase.Children.Add(satBody);
-
-    //    //
-
-    //    Week.Children.Add(mondayCase);
-    //    Week.Children.Add(tuesdayCase);
-    //    Week.Children.Add(wednesdayCase);
-    //    Week.Children.Add(thursdayCase);
-    //    Week.Children.Add(fridayCase);
-    //    Week.Children.Add(saturdayCase);
-
-    //    ScrollView scrollView = new ScrollView
-    //    {
-    //        Margin = new Thickness(20),
-    //        Content = Week
-    //    };
-
-    //    Content = scrollView;
-
-
-    //}
-
-    //private void addObj(object? sender, EventArgs e)
-    //{
-    //    //if (sat <= 4)
-    //    //{
-    //    //    sat++;
-    //    //    satBody.Children.Add(new Entry { Placeholder = "Нова назва предмету" });
-    //    //    satBody.Children.Add(new TimePicker());
-    //    //    satBody.Children.Add(new TimePicker());
-    //    //}
-    //    //else messageStackOverflow();
-
-    //    if (sender == butMon)
-    //    {
-    //        messageAdded("Monday");
-    //    } else if (sender == butTue)
-    //    {
-    //        messageAdded("Tuesday");
-    //    } else if (sender == butWed)
-    //    {
-    //        messageAdded("Wednesday");
-    //    } else if (sender == butThu)
-    //    {
-    //        messageAdded("Thursday");
-    //    } else if (sender == butFri)
-    //    {
-    //        messageAdded("Friday");
-    //    } else if (sender == butSat) 
-    //    {
-    //        messageAdded("Saturday");
-    //    }
-
     }
 
-    //int mon = 0;
-    //int tue = 0;
-    //int wed = 0;
-    //int thu = 0;
-    //int fri = 0;
-    //int sat = 0;
+    // Variables
 
-    //public void messageAdded(string Day)
-    //{
-    //    DisplayAlert("Alert", Day, "Ok");
-    //}
-
-    //public void messageStackOverflow()
-    //{
-    //    DisplayAlert("Stack Overflow", "Ви наклацали забагато пар!", "Блін.");
-    //}
+    int Mon = 1;
+    int Tue = 1;
+    int Wed = 1;
+    int Thu = 1;
+    int Fri = 1;
+    int Sat = 1;
 
     private void ApplyClicked(object sender, EventArgs e)
     {
@@ -199,15 +43,12 @@ public partial class SettingsPage : ContentPage
                         {
                             if (string.IsNullOrWhiteSpace(entry.Text))
                             {
-                                // Поле введення порожнє або містить тільки пробіли
-                                // Виконати відповідні дії
                                 DisplayAlert("Error!", "Ви маєте пусті поля. Видаліть або заповніть пару.", "Гаразд");
                             }
                             else
                             {
-                                // Поле введення не порожнє
-                                // Виконати потрібні дії
-                                DisplayAlert("", "Kek", "Kek");
+                                SaveToDB();
+                                DisplayAlert("Увага!", "Збережено.", "ОК.");
                             }
                         }
                     }
@@ -216,9 +57,10 @@ public partial class SettingsPage : ContentPage
         }
     }
 
-    //DisplayAlert("Error!","Ви маєте пусті поля. Видаліть або заповніть пару.","Гаразд");
-    //DisplayAlert("", "Kek", "Kek");
-
+    private void SaveToDB()
+    {
+        
+    }
 
     private void ClickDel(object sender, EventArgs e)
     {
@@ -491,14 +333,4 @@ public partial class SettingsPage : ContentPage
         }
         else DisplayAlert("error", "5 Пар - максимум", "OK");
     }
-
-    // Variables
-
-    int Mon = 1;
-    int Tue = 1;
-    int Wed = 1;
-    int Thu = 1;
-    int Fri = 1;
-    int Sat = 1;
-
 }
