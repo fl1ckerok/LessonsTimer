@@ -76,7 +76,7 @@ public partial class SettingsPage : ContentPage
             if (counter >= 2)
             {
                 frames[counter-1].IsVisible = false;
-                counter++;
+                counter--;
             }
         }
     }
