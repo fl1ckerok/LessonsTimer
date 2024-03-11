@@ -6,23 +6,23 @@ namespace LessonsTimer;
 
 public partial class SettingsPage : ContentPage
 {
+
+    private Dictionary<ImageButton, List<Frame>> buttonFramesDictionary = [];
     public SettingsPage()
     {
         InitializeComponent();
+
+        buttonFramesDictionary.Add(MondayButton, [MondayFirst, MondaySecond, MondayThird, MondayFourth, MondayFifth]);
+        buttonFramesDictionary.Add(TuesdayButton, [TuesdayFirst, TuesdaySecond, TuesdayThird, TuesdayFourth, TuesdayFifth]);
+        buttonFramesDictionary.Add(WednesdayButton, [WednesdayFirst, WednesdaySecond, WednesdayThird, WednesdayFourth, WednesdayFifth]);
+        buttonFramesDictionary.Add(ThursdayButton, [ThursdayFirst, ThursdaySecond, ThursdayThird, ThursdayFourth, ThursdayFifth]);
+        buttonFramesDictionary.Add(FridayButton, [FridayFirst, FridaySecond, FridayThird, FridayFourth, FridayFifth]);
+        buttonFramesDictionary.Add(SaturdayButton, [SaturdayFirst, SaturdaySecond, SaturdayThird, SaturdayFourth, SaturdayFifth]);
     }
-
-    // Variables
-
-    int Mon = 1;
-    int Tue = 1;
-    int Wed = 1;
-    int Thu = 1;
-    int Fri = 1;
-    int Sat = 1;
 
     private void ApplyClicked(object sender, EventArgs e)
     {
-        // Припустимо, що frames - це масив фреймів, у кожному з яких є поля введення (Entry)
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ frames - пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (Entry)
         Frame[] frames = { MondayFirst, MondaySecond, MondayThird, MondayFourth, MondayFifth,
                            TuesdayFirst, TuesdaySecond, TuesdayThird, TuesdayFourth, TuesdayFifth,
                            WednesdayFirst, WednesdaySecond, WednesdayThird, WednesdayFourth, WednesdayFifth,
@@ -34,7 +34,7 @@ public partial class SettingsPage : ContentPage
         {
             if (frame.IsVisible)
             {
-                // Перевірте всі поля введення всередині цього рамки, якщо вона видима
+                // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                 foreach (var child in frame.Children)
                 {
                     if (child is StackLayoutAlias stackLayout)
@@ -43,12 +43,12 @@ public partial class SettingsPage : ContentPage
                         {
                             if (string.IsNullOrWhiteSpace(entry.Text))
                             {
-                                DisplayAlert("Error!", "Ви маєте пусті поля. Видаліть або заповніть пару.", "Гаразд");
+                                DisplayAlert("Error!", "пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ.", "пїЅпїЅпїЅпїЅпїЅпїЅ");
                             }
                             else
                             {
                                 SaveToDB();
-                                DisplayAlert("Увага!", "Збережено.", "ОК.");
+                                DisplayAlert("пїЅпїЅпїЅпїЅпїЅ!", "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.", "пїЅпїЅ.");
                             }
                         }
                     }
@@ -64,273 +64,38 @@ public partial class SettingsPage : ContentPage
 
     private void ClickDel(object sender, EventArgs e)
     {
-        if ((sender == MondayTrash) && (Mon >= 2))
+        var button = (ImageButton)sender;
+        int counter = 0;
+        if (buttonFramesDictionary.ContainsKey(button))
         {
-            switch (Mon)
+            var frames = buttonFramesDictionary[button];
+            foreach (var frame in frames)
             {
-                case 5:
-                    MondayFifth.IsVisible = false;
-                    Mon--;
-                    break;
-                case 4:
-                    MondayFourth.IsVisible = false;
-                    Mon--;
-                    break;
-                case 3:
-                    MondayThird.IsVisible = false;
-                    Mon--;
-                    break;
-                case 2:
-                    MondaySecond.IsVisible = false;
-                    Mon--;
-                    break;
+                if (frame.IsVisible) counter++;         // Get counter of Visible frames
             }
-        }
-        else if ((sender == TuesdayTrash) && (Tue >= 2))
-        {
-            switch (Tue)
+            if (counter >= 2)
             {
-                case 5:
-                    TuesdayFifth.IsVisible = false;
-                    Tue--;
-                    break;
-                case 4:
-                    TuesdayFourth.IsVisible = false;
-                    Tue--;
-                    break;
-                case 3:
-                    TuesdayThird.IsVisible = false;
-                    Tue--;
-                    break;
-                case 2:
-                    TuesdaySecond.IsVisible = false;
-                    Tue--;
-                    break;
-            }
-        }
-        else if ((sender == WednesdayTrash) && (Wed >= 2))
-        {
-            switch (Wed)
-            {
-                case 5:
-                    WednesdayFifth.IsVisible = false;
-                    Wed--;
-                    break;
-                case 4:
-                    WednesdayFourth.IsVisible = false;
-                    Wed--;
-                    break;
-                case 3:
-                    WednesdayThird.IsVisible = false;
-                    Wed--;
-                    break;
-                case 2:
-                    WednesdaySecond.IsVisible = false;
-                    Wed--;
-                    break;
-            }
-        }
-        else if ((sender == ThursdayTrash) && (Thu >= 2))
-        {
-            switch (Thu)
-            {
-                case 5:
-                    ThursdayFifth.IsVisible = false;
-                    Thu--;
-                    break;
-                case 4:
-                    ThursdayFourth.IsVisible = false;
-                    Thu--;
-                    break;
-                case 3:
-                    ThursdayThird.IsVisible = false;
-                    Thu--;
-                    break;
-                case 2:
-                    ThursdaySecond.IsVisible = false;
-                    Thu--;
-                    break;
-            }
-        }
-        else if ((sender == FridayTrash) && (Fri >= 2))
-        {
-            switch (Fri)
-            {
-                case 5:
-                    FridayFifth.IsVisible = false;
-                    Fri--;
-                    break;
-                case 4:
-                    FridayFourth.IsVisible = false;
-                    Fri--;
-                    break;
-                case 3:
-                    FridayThird.IsVisible = false;
-                    Fri--;
-                    break;
-                case 2:
-                    FridaySecond.IsVisible = false;
-                    Fri--;
-                    break;
-            }
-        }
-        else if ((sender == SaturdayTrash) && (Sat >= 2))
-        {
-            switch (Sat)
-            {
-                case 5:
-                    SaturdayFifth.IsVisible = false;
-                    Sat--;
-                    break;
-                case 4:
-                    SaturdayFourth.IsVisible = false;
-                    Sat--;
-                    break;
-                case 3:
-                    SaturdayThird.IsVisible = false;
-                    Sat--;
-                    break;
-                case 2:
-                    SaturdaySecond.IsVisible = false;
-                    Sat--;
-                    break;
+                frames[counter-1].IsVisible = false;
+                counter++;
             }
         }
     }
     private void ClickAdd(object sender, EventArgs e) 
     {
-        if ((sender == MondayButton) && (Mon <= 4))
+        var button = (ImageButton)sender;
+        int counter = 0;
+        if (buttonFramesDictionary.ContainsKey(button))
         {
-            switch (Mon)
+            var frames = buttonFramesDictionary[button];
+            foreach (var frame in frames)
             {
-                case 1:
-                    MondaySecond.IsVisible = true;
-                    Mon++;
-                    break;
-                case 2:
-                    MondayThird.IsVisible = true;
-                    Mon++;
-                    break;
-                case 3:
-                    MondayFourth.IsVisible = true;
-                    Mon++;
-                    break;
-                case 4:
-                    MondayFifth.IsVisible = true;
-                    Mon++;
-                    break;
+                if (frame.IsVisible) counter++;         // Get counter of Visible frames
             }
-        }
-        else if ((sender == TuesdayButton) && (Tue <= 4))
-        {
-            switch (Tue)
+            if (counter <= 4)
             {
-                case 1:
-                    TuesdaySecond.IsVisible = true;
-                    Tue++;
-                    break;
-                case 2:
-                    TuesdayThird.IsVisible = true;
-                    Tue++;
-                    break;
-                case 3:
-                    TuesdayFourth.IsVisible = true;
-                    Tue++;
-                    break;
-                case 4:
-                    TuesdayFifth.IsVisible = true;
-                    Tue++;
-                    break;
-            }
+                frames[counter].IsVisible = true;
+                counter++;
+            } else DisplayAlert("error", "5 пїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", "OK");
         }
-        else if ((sender == WednesdayButton) && (Wed <= 4))
-        {
-            switch (Wed)
-            {
-                case 1:
-                    WednesdaySecond.IsVisible = true;
-                    Wed++;
-                    break;
-                case 2:
-                    WednesdayThird.IsVisible = true;
-                    Wed++;
-                    break;
-                case 3:
-                    WednesdayFourth.IsVisible = true;
-                    Wed++;
-                    break;
-                case 4:
-                    WednesdayFifth.IsVisible = true;
-                    Wed++;
-                    break;
-            }
-        }
-        else if ((sender == ThursdayButton) && (Thu <= 4))
-        {
-            switch (Thu)
-            {
-                case 1:
-                    ThursdaySecond.IsVisible = true;
-                    Thu++;
-                    break;
-                case 2:
-                    ThursdayThird.IsVisible = true;
-                    Thu++;
-                    break;
-                case 3:
-                    ThursdayFourth.IsVisible = true;
-                    Thu++;
-                    break;
-                case 4:
-                    ThursdayFifth.IsVisible = true;
-                    Thu++;
-                    break;
-            }
-        }
-        else if ((sender == FridayButton) && (Fri <= 4))
-        {
-            switch (Fri)
-            {
-                case 1:
-                    FridaySecond.IsVisible = true;
-                    Fri++;
-                    break;
-                case 2:
-                    FridayThird.IsVisible = true;
-                    Fri++;
-                    break;
-                case 3:
-                    FridayFourth.IsVisible = true;
-                    Fri++;
-                    break;
-                case 4:
-                    FridayFifth.IsVisible = true;
-                    Fri++;
-                    break;
-            }
-        }
-        else if ((sender == SaturdayButton) && (Sat <= 4))
-        {
-            switch (Sat)
-            {
-                case 1:
-                    SaturdaySecond.IsVisible = true;
-                    Sat++;
-                    break;
-                case 2:
-                    SaturdayThird.IsVisible = true;
-                    Sat++;
-                    break;
-                case 3:
-                    SaturdayFourth.IsVisible = true;
-                    Sat++;
-                    break;
-                case 4:
-                    SaturdayFifth.IsVisible = true;
-                    Sat++;
-                    break;
-            }
-        }
-        else DisplayAlert("error", "5 Пар - максимум", "OK");
     }
 }
