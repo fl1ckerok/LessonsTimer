@@ -9,6 +9,7 @@ public partial class SettingsPage : ContentPage
 {
 
     private Dictionary<ImageButton, List<Frame>> buttonFramesDictionary = [];
+    private Dictionary<ImageButton, List<Frame>> trashFramesDictionary = [];
     public SettingsPage()
     {
         InitializeComponent();
@@ -19,6 +20,13 @@ public partial class SettingsPage : ContentPage
         buttonFramesDictionary.Add(ThursdayButton, [ThursdayFirst, ThursdaySecond, ThursdayThird, ThursdayFourth, ThursdayFifth]);
         buttonFramesDictionary.Add(FridayButton, [FridayFirst, FridaySecond, FridayThird, FridayFourth, FridayFifth]);
         buttonFramesDictionary.Add(SaturdayButton, [SaturdayFirst, SaturdaySecond, SaturdayThird, SaturdayFourth, SaturdayFifth]);
+
+        trashFramesDictionary.Add(MondayTrash, [MondayFirst, MondaySecond, MondayThird, MondayFourth, MondayFifth]);
+        trashFramesDictionary.Add(TuesdayTrash, [TuesdayFirst, TuesdaySecond, TuesdayThird, TuesdayFourth, TuesdayFifth]);
+        trashFramesDictionary.Add(WednesdayTrash, [WednesdayFirst, WednesdaySecond, WednesdayThird, WednesdayFourth, WednesdayFifth]);
+        trashFramesDictionary.Add(ThursdayTrash, [ThursdayFirst, ThursdaySecond, ThursdayThird, ThursdayFourth, ThursdayFifth]);
+        trashFramesDictionary.Add(FridayTrash, [FridayFirst, FridaySecond, FridayThird, FridayFourth, FridayFifth]);
+        trashFramesDictionary.Add(SaturdayTrash, [SaturdayFirst, SaturdaySecond, SaturdayThird, SaturdayFourth, SaturdayFifth]);
     }
 
     protected override void OnAppearing()
@@ -66,32 +74,24 @@ public partial class SettingsPage : ContentPage
                         FridayFirst, FridaySecond, FridayThird, FridayFourth, FridayFifth,
                         SaturdayFirst, SaturdaySecond, SaturdayThird, SaturdayFourth, SaturdayFifth];
 
-        // ����������, �� frames - �� ����� ������, � ������� � ���� � ���� �������� (Entry)
         foreach (var frame in frames)
         {
             if (frame.IsVisible)
             {
-                // �������� �� ���� �������� ��������� ����� �����, ���� ���� ������
                 foreach (var child in frame.Children)
                 {
                     if (child is StackLayoutAlias stackLayout)
                     {
                         foreach (var entry in stackLayout.Children.OfType<Entry>())
                         {
-                            if (string.IsNullOrWhiteSpace(entry.Text))
-                            {
-                                DisplayAlert("Error!", "�� ���� ���� ����. ������� ��� ��������� ����.", "������");
-                            }
-                            else
-                            {
-                                SaveToDB();
-                                DisplayAlert("�����!", "���������.", "��.");
-                            }
+                            if (string.IsNullOrWhiteSpace(entry.Text)) DisplayAlert("Error!", "You have empty names, fix it!", "OK!");
                         }
                     }
                 }
             }
         }
+        SaveToDB();
+        DisplayAlert("Message", "Saved.", "OK.");
     }
 
     private string NumToDay(int num)
@@ -193,24 +193,7 @@ public partial class SettingsPage : ContentPage
                     generalId++;
                 }
             }
-
-            // Зберігаємо зміни у базі даних
             db.SaveChanges();
-            //try
-            //{
-            //    db.SaveChanges();
-            //}
-            //catch (DbUpdateException ex)
-            //{
-            //    // Розгорнення внутрішньої помилки
-            //    Exception innerException = ex.InnerException;
-            //    while (innerException != null)
-            //    {
-            //        Console.WriteLine(innerException.Message);
-            //        innerException = innerException.InnerException;
-            //    }
-            //    // Опрацювання помилки додатково за потреби
-            //}
         }
     }
 
@@ -218,9 +201,9 @@ public partial class SettingsPage : ContentPage
     {
         var button = (ImageButton)sender;
         int counter = 0;
-        if (buttonFramesDictionary.ContainsKey(button))
+        if (trashFramesDictionary.ContainsKey(button))
         {
-            var frames = buttonFramesDictionary[button];
+            var frames = trashFramesDictionary[button];
             foreach (var frame in frames)
             {
                 if (frame.IsVisible) counter++;         // Get counter of Visible frames
@@ -248,7 +231,7 @@ public partial class SettingsPage : ContentPage
                 frames[counter].IsVisible = true;
                 counter++;
             }
-            else DisplayAlert("error", "5 ��� - ��������", "OK");
+            else DisplayAlert("error", "5 lessons - max", "OK");
         }
     }
 }
