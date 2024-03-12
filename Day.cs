@@ -11,6 +11,6 @@ namespace LessonsTimer
     {
         public int DayId { get; set; }
         public string? DayWeek { get; set; }
-        public virtual ObservableCollectionListSource<Lesson> Lessons { get; } = new();
+        public virtual ICollection<Lesson> Lessons { get; set; } = [];
     }
 }
