@@ -6,7 +6,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Apply" IconImageSource="Image/check.svg" Clicked="ApplyClicked" />
-        <ToolbarItem Text="Profile" IconImageSource="Image/user.svg" />
+        <ToolbarItem Text="Profile" IconImageSource="Image/trash.svg" Clicked="DeleteDB" />
     </ContentPage.ToolbarItems>
 
     <ScrollView>

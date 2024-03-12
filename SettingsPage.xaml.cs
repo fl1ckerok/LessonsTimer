@@ -38,7 +38,6 @@ public partial class SettingsPage : ContentPage
     private void LoadData()
     {
         using ApplicationContext db = new ApplicationContext();
-        // 30 елементів в лісті, розбити знову через фрейми, закидати так як для Attach
         var lessons = db.Lessons.ToList();
         var lessonsInDb = lessons.Count;
         Dictionary<int, List<Frame>> nameFramesDict = [];
@@ -206,7 +205,7 @@ public partial class SettingsPage : ContentPage
             var frames = trashFramesDictionary[button];
             foreach (var frame in frames)
             {
-                if (frame.IsVisible) counter++;         // Get counter of Visible frames
+                if (frame.IsVisible) counter++;
             }
             if (counter >= 2)
             {
@@ -224,7 +223,7 @@ public partial class SettingsPage : ContentPage
             var frames = buttonFramesDictionary[button];
             foreach (var frame in frames)
             {
-                if (frame.IsVisible) counter++;         // Get counter of Visible frames
+                if (frame.IsVisible) counter++;
             }
             if (counter <= 4)
             {
@@ -232,6 +231,32 @@ public partial class SettingsPage : ContentPage
                 counter++;
             }
             else DisplayAlert("error", "5 lessons - max", "OK");
+        }
+    }
+    private async void DeleteDB(object sender, EventArgs e)
+    {
+        bool result = await DisplayAlert("Confirmation", "Are you sure you want to delete all your lessons list?", "Yes", "No");
+        if (result)
+        {
+            using ApplicationContext db = new();
+
+            string androidFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            string iosFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "..", "Library");
+
+            string databasePath = Path.Combine(androidFolderPath, "lessons.db");
+#if __IOS__
+            databasePath = Path.Combine(iosFolderPath, "lessons.db");
+#endif
+
+            if (File.Exists(databasePath))
+            {
+                db.Database.EnsureDeleted();
+                File.Delete(databasePath);
+                await DisplayAlert("Message", "Deleted!", "OK");
+            } else
+            {
+                await DisplayAlert("Error", "You didn't saved any list yet!", "OK");
+            }
         }
     }
 }
