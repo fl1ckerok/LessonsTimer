@@ -8,27 +8,128 @@
     </ContentPage.ToolbarItems>
     
     
-    <StackLayout>
 
-        <Frame CornerRadius="30" BackgroundColor="#584D6F" HorizontalOptions="Center" Margin="-210,20,0,5">
-            <Label HorizontalTextAlignment="Center" TextColor="White" Text="Сьогодні" Margin="0,-15,0,0" />
-        </Frame>
+    <ScrollView>
 
-        <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0">
-            <VerticalStackLayout>
-                <HorizontalStackLayout HorizontalOptions="Center">
-                    <Label Text="До кінця " />
-                    <Label x:Name="nameLesson" Text=" " />
-                    <Label Text="залишилось:" />
+        <StackLayout>
+
+            <Frame CornerRadius="30" BackgroundColor="#584D6F" HorizontalOptions="Center" Margin="-210,20,0,5">
+                <Label HorizontalTextAlignment="Center" TextColor="White" Text="Сьогодні" Margin="0,-15,0,0" />
+            </Frame>
+
+            <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0">
+                <VerticalStackLayout>
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <Label Text="До кінця " />
+                        <Label x:Name="nameLesson" Text=" " />
+                        <Label Text="залишилось:" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <Label x:Name="timeEndLesson" FontSize="60"></Label>
+                        <Label Margin="0,50,0,0">хв.</Label>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+            </Frame>
+
+            <HorizontalStackLayout Margin="0,0,0,0" HorizontalOptions="Center">
+                <Frame CornerRadius="30" BackgroundColor="#D29292" HorizontalOptions="Center" Margin="0,30,0,7">
+                    <Label HorizontalTextAlignment="Center" TextColor="Black" Text="Наступні пари" Margin="0,-15,0,0" />
+                </Frame>
+            </HorizontalStackLayout>
+
+            <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0">
+                <HorizontalStackLayout Spacing="5">
+                    <Label>Name</Label>
+                    <Label>Початок:</Label>
+                    <Label>TimeSpan</Label>
+                    <Label>Кінець:</Label>
+                    <Label>TimeSpan</Label>
                 </HorizontalStackLayout>
-                <HorizontalStackLayout HorizontalOptions="Center">
-                    <Label x:Name="timeEndLesson" FontSize="60"></Label>
-                    <Label Margin="0,50,0,0">хв.</Label>
+            </Frame>
+
+            <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
+                <HorizontalStackLayout Spacing="5">
+                    <Label>Name</Label>
+                    <Label>Початок:</Label>
+                    <Label>TimeSpan</Label>
+                    <Label>Кінець:</Label>
+                    <Label>TimeSpan</Label>
                 </HorizontalStackLayout>
-            </VerticalStackLayout>
+            </Frame>
 
-        </Frame>
+            <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
+                <HorizontalStackLayout Spacing="5">
+                    <Label>Name</Label>
+                    <Label>Початок:</Label>
+                    <Label>TimeSpan</Label>
+                    <Label>Кінець:</Label>
+                    <Label>TimeSpan</Label>
+                </HorizontalStackLayout>
+            </Frame>
 
-    </StackLayout>
+            <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
+                <HorizontalStackLayout Spacing="5">
+                    <Label>Name</Label>
+                    <Label>Початок:</Label>
+                    <Label>TimeSpan</Label>
+                    <Label>Кінець:</Label>
+                    <Label>TimeSpan</Label>
+                </HorizontalStackLayout>
+            </Frame>
+
+            <Frame CornerRadius="30" BackgroundColor="#584D6F" HorizontalOptions="Center" Margin="-210,20,0,5">
+                <Label HorizontalTextAlignment="Center" TextColor="White" Text="Завтра" Margin="0,-15,0,0" />
+            </Frame>
+
+            <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0">
+                <HorizontalStackLayout Spacing="5">
+                    <Label>Name</Label>
+                    <Label>Початок:</Label>
+                    <Label>TimeSpan</Label>
+                    <Label>Кінець:</Label>
+                    <Label>TimeSpan</Label>
+                </HorizontalStackLayout>
+            </Frame>
+            <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
+                <HorizontalStackLayout Spacing="5">
+                    <Label>Name</Label>
+                    <Label>Початок:</Label>
+                    <Label>TimeSpan</Label>
+                    <Label>Кінець:</Label>
+                    <Label>TimeSpan</Label>
+                </HorizontalStackLayout>
+            </Frame>
+            <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
+                <HorizontalStackLayout Spacing="5">
+                    <Label>Name</Label>
+                    <Label>Початок:</Label>
+                    <Label>TimeSpan</Label>
+                    <Label>Кінець:</Label>
+                    <Label>TimeSpan</Label>
+                </HorizontalStackLayout>
+            </Frame>
+            <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
+                <HorizontalStackLayout Spacing="5">
+                    <Label>Name</Label>
+                    <Label>Початок:</Label>
+                    <Label>TimeSpan</Label>
+                    <Label>Кінець:</Label>
+                    <Label>TimeSpan</Label>
+                </HorizontalStackLayout>
+            </Frame>
+            <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,20">
+                <HorizontalStackLayout Spacing="5">
+                    <Label>Name</Label>
+                    <Label>Початок:</Label>
+                    <Label>TimeSpan</Label>
+                    <Label>Кінець:</Label>
+                    <Label>TimeSpan</Label>
+                </HorizontalStackLayout>
+            </Frame>
+
+        </StackLayout>
+
+    </ScrollView>
     
 </ContentPage>
