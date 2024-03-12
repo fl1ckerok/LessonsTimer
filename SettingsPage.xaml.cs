@@ -56,7 +56,7 @@ public partial class SettingsPage : ContentPage
             {
                 SetEntry(frames[k], lessons[generalId].Name);
                 SetTime(frames[k], true, lessons[generalId].TimeStart);
-                SetTime(frames[k], false, lessons[generalId].TimeStart);
+                SetTime(frames[k], false, lessons[generalId].TimeEnd);
                 frames[k].IsVisible = lessons[generalId].Visible;
                 generalId++;
             }
