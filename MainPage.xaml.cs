@@ -1,21 +1,23 @@
 ﻿using Microsoft.Maui.Controls;
 using System;
+using System.Linq.Expressions;
 using System.Threading;
 
 namespace LessonsTimer
 {
     public partial class MainPage : ContentPage
     {
+        List<Lesson> TodayLessons;
+        Timer timer;
         public MainPage()
         {
             InitializeComponent();
-
-
         }
 
         protected override void OnAppearing()
         {
             LoadData();
+            
         }
 
         public DayOfWeek GetTodayDay() 
@@ -34,20 +36,30 @@ namespace LessonsTimer
         {
             using ApplicationContext db = new();
             DayOfWeek today = GetTodayDay();
-            var lessons = db.Lessons.Where(Lesson => Lesson.DayWeek == today.ToString).ToList();
+            var lessons = db.Lessons.Where(lesson => lesson.DayWeek == today.ToString()).ToList();
             if (lessons.Count == 0) return;
-            Timer timer = new Timer(async (state) => await RefreshPage(lessons), null, TimeSpan.Zero, TimeSpan.FromMinutes(1));
+            TodayLessons = lessons;
+            timer = new Timer(async (state) => await RefreshPage(TodayLessons), null, TimeSpan.Zero, TimeSpan.FromMinutes(1));
         }
-
-        private void RefreshPage(var lessons) 
+        private async Task RefreshPage(List<Lesson> lessons) 
         {
             TimeSpan currentTimeSpan = GetTimeOfDay();
             foreach (var lesson in lessons) {
+                // Current Time в межах пари.
                 if (currentTimeSpan >= lesson.TimeStart && currentTimeSpan <= lesson.TimeEnd) {
-                    mainNameLesson = lesson.Name;
-                    // Calc to end of lesson every min
-                    TimeSpan timeLeft = lesson.TimeEnd - currentTimeSpan;
-                    mainEndLesson = (timeLeft.Hours == 0) ? $"{timeLeft.Minutes}" : $"{timeLeft.Hours}:{timeLeft.Minutes:00}";
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        mainNameLesson.Text = lesson.Name;
+                        // Calc to end of lesson every min.
+                        TimeSpan timeLeft = lesson.TimeEnd - currentTimeSpan;
+                        mainEndLesson.Text = (timeLeft.Hours == 0) ? $"{timeLeft.Minutes}" : $"{timeLeft.Hours}:{timeLeft.Minutes:00}";
+                    });
+                    break;
+                } 
+                // Якщо поза межами пар
+                else
+                {
+
                 }
             }
         }
