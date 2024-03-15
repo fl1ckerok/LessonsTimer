@@ -21,11 +21,11 @@
                 <VerticalStackLayout>
                     <HorizontalStackLayout HorizontalOptions="Center">
                         <Label Text="До кінця " />
-                        <Label x:Name="nameLesson" Text=" " />
+                        <Label x:Name="mainNameLesson" Text=" " />
                         <Label Text="залишилось:" />
                     </HorizontalStackLayout>
                     <HorizontalStackLayout HorizontalOptions="Center">
-                        <Label x:Name="timeEndLesson" FontSize="60"></Label>
+                        <Label x:Name="mainEndLesson" FontSize="60"></Label>
                         <Label Margin="0,50,0,0">хв.</Label>
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
@@ -39,7 +39,7 @@
             </HorizontalStackLayout>
 
             <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0">
-                <HorizontalStackLayout Spacing="5">
+                <HorizontalStackLayout Spacing="5" x:Name="NextL1">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
                     <Label>TimeSpan</Label>
@@ -49,7 +49,7 @@
             </Frame>
 
             <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
-                <HorizontalStackLayout Spacing="5">
+                <HorizontalStackLayout Spacing="5" x:Name="NextL2">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
                     <Label>TimeSpan</Label>
@@ -59,7 +59,7 @@
             </Frame>
 
             <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
-                <HorizontalStackLayout Spacing="5">
+                <HorizontalStackLayout Spacing="5" x:Name="NextL3">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
                     <Label>TimeSpan</Label>
@@ -69,7 +69,7 @@
             </Frame>
 
             <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
-                <HorizontalStackLayout Spacing="5">
+                <HorizontalStackLayout Spacing="5" x:Name="NextL4">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
                     <Label>TimeSpan</Label>
@@ -83,7 +83,7 @@
             </Frame>
 
             <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0">
-                <HorizontalStackLayout Spacing="5">
+                <HorizontalStackLayout Spacing="5" x:Name="TomorrowL1">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
                     <Label>TimeSpan</Label>
@@ -92,7 +92,7 @@
                 </HorizontalStackLayout>
             </Frame>
             <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
-                <HorizontalStackLayout Spacing="5">
+                <HorizontalStackLayout Spacing="5" x:Name="TomorrowL2">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
                     <Label>TimeSpan</Label>
@@ -101,7 +101,7 @@
                 </HorizontalStackLayout>
             </Frame>
             <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
-                <HorizontalStackLayout Spacing="5">
+                <HorizontalStackLayout Spacing="5" x:Name="TomorrowL3">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
                     <Label>TimeSpan</Label>
@@ -110,7 +110,7 @@
                 </HorizontalStackLayout>
             </Frame>
             <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
-                <HorizontalStackLayout Spacing="5">
+                <HorizontalStackLayout Spacing="5" x:Name="TomorrowL4">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
                     <Label>TimeSpan</Label>
@@ -119,7 +119,7 @@
                 </HorizontalStackLayout>
             </Frame>
             <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,20">
-                <HorizontalStackLayout Spacing="5">
+                <HorizontalStackLayout Spacing="5" x:Name="TomorrowL5">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
                     <Label>TimeSpan</Label>
