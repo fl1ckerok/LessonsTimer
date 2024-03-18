@@ -20,7 +20,7 @@
             <Frame CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0">
                 <VerticalStackLayout>
                     <HorizontalStackLayout HorizontalOptions="Center">
-                        <Label Text="До кінця " />
+                        <Label x:Name="startEnd" Text="До кінця " />
                         <Label x:Name="mainNameLesson" Text=" " />
                         <Label Text="залишилось:" />
                     </HorizontalStackLayout>

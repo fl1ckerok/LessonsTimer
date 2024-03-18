@@ -17,7 +17,6 @@ namespace LessonsTimer
         protected override void OnAppearing()
         {
             LoadData();
-            
         }
 
         public DayOfWeek GetTodayDay() 
@@ -49,17 +48,32 @@ namespace LessonsTimer
                 if (currentTimeSpan >= lesson.TimeStart && currentTimeSpan <= lesson.TimeEnd) {
                     Device.BeginInvokeOnMainThread(() =>
                     {
+                        startEnd.Text = "До кінця ";
                         mainNameLesson.Text = lesson.Name;
                         // Calc to end of lesson every min.
                         TimeSpan timeLeft = lesson.TimeEnd - currentTimeSpan;
                         mainEndLesson.Text = (timeLeft.Hours == 0) ? $"{timeLeft.Minutes}" : $"{timeLeft.Hours}:{timeLeft.Minutes:00}";
                     });
+
                     break;
                 } 
                 // Якщо поза межами пар
                 else
                 {
-
+                    if (lesson.TimeEnd - currentTimeSpan <= TimeSpan.Zero)
+                    {
+                        lessons.Remove(lesson);
+                    } else 
+                    {
+                        Device.BeginInvokeOnMainThread(() =>
+                            {
+                                startEnd.Text = "До початку ";
+                                mainNameLesson.Text = lesson.Name;
+                                TimeSpan timeLeftToNextLesson = lesson.TimeStart - currentTimeSpan;
+                                mainEndLesson.Text = $"{timeLeftToNextLesson.Minutes}";
+                            }
+                        );
+                    }
                 }
             }
         }
