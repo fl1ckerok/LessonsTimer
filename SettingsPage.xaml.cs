@@ -72,7 +72,7 @@ public partial class SettingsPage : ContentPage
                         ThursdayFirst, ThursdaySecond, ThursdayThird, ThursdayFourth, ThursdayFifth,
                         FridayFirst, FridaySecond, FridayThird, FridayFourth, FridayFifth,
                         SaturdayFirst, SaturdaySecond, SaturdayThird, SaturdayFourth, SaturdayFifth];
-
+        bool success = true;
         foreach (var frame in frames)
         {
             if (frame.IsVisible)
@@ -83,14 +83,24 @@ public partial class SettingsPage : ContentPage
                     {
                         foreach (var entry in stackLayout.Children.OfType<Entry>())
                         {
-                            if (string.IsNullOrWhiteSpace(entry.Text)) DisplayAlert("Error!", "You have empty names, fix it!", "OK!");
+                            if (string.IsNullOrWhiteSpace(entry.Text))
+                            {
+                                DisplayAlert("Error!", "You have empty names, fix it!", "OK!");
+                                success = false;
+                                return;
+                            }
+                            else success = true;
                         }
                     }
                 }
             }
         }
-        SaveToDB();
-        DisplayAlert("Message", "Saved.", "OK.");
+        if (success)
+        {
+            SaveToDB();
+            DisplayAlert("Message", "Saved.", "OK.");
+        }
+
     }
 
     private string NumToDay(int num)

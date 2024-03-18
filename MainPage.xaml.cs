@@ -123,8 +123,8 @@ namespace LessonsTimer
                             nameLess.Text = lessons[i].Name;
                             var timeSt = (Label)stackL.Children[2];
                             var timeEn = (Label)stackL.Children[4];
-                            timeSt.Text = lessons[i].TimeStart.ToString();
-                            timeEn.Text = lessons[i].TimeEnd.ToString();
+                            timeSt.Text = lessons[i].TimeStart.ToString(@"hh\:mm");
+                            timeEn.Text = lessons[i].TimeEnd.ToString(@"hh\:mm");
                             i++;
                         }
                         enabled--;
@@ -158,8 +158,8 @@ namespace LessonsTimer
                         nameLess.Text = lessonsTom[i].Name;
                         var timeSt = (Label)stackL.Children[2];
                         var timeEn = (Label)stackL.Children[4];
-                        timeSt.Text = lessonsTom[i].TimeStart.ToString("HH:mm");
-                        timeEn.Text = lessonsTom[i].TimeEnd.ToString("HH:mm");
+                        timeSt.Text = lessonsTom[i].TimeStart.ToString(@"hh\:mm");
+                        timeEn.Text = lessonsTom[i].TimeEnd.ToString(@"hh\:mm");
                         enabled--;
                         i++;
                     }

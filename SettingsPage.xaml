@@ -331,7 +331,7 @@
                     </StackLayout>
                 </Frame>
             </StackLayout>
-            <StackLayout x:Name="Saturday">
+            <StackLayout x:Name="Saturday" IsVisible="false">
                 <HorizontalStackLayout>
 
                     <Frame CornerRadius="30" BackgroundColor="#584D6F" HorizontalOptions="Center" Margin="40,20,-245,5">
@@ -344,7 +344,7 @@
 
                 </HorizontalStackLayout>
 
-                <Frame x:Name="SaturdayFirst" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0">
+                <Frame x:Name="SaturdayFirst" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="false">
                     <StackLayout>
                         <Entry Placeholder="Ім'я предмету" PlaceholderColor="Black"/>
                         <Label>Початок:</Label>
