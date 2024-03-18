@@ -35,7 +35,9 @@ namespace LessonsTimer
         {
             using ApplicationContext db = new();
             DayOfWeek today = GetTodayDay();
-            DayOfWeek tomorrow = today++;
+            DateTime todayDateTime = DateTime.Today; // Поточна дата
+            DateTime tomorrowDateTime = todayDateTime.AddDays(1); // Додати один день
+            DayOfWeek tomorrow = tomorrowDateTime.DayOfWeek; // Отримати день тижня для завтрашньої дати
             var lessons = db.Lessons.Where(lesson => lesson.DayWeek == today.ToString() && lesson.Visible).ToList();
             if (lessons.Count == 0) return;
             var lessonsTom = db.Lessons.Where(lesson => lesson.DayWeek == tomorrow.ToString() && lesson.Visible).ToList();
@@ -58,6 +60,14 @@ namespace LessonsTimer
                             // Calc to end of lesson every min.
                             TimeSpan timeLeft = lesson.TimeEnd - currentTimeSpan;
                             mainEndLesson.Text = (timeLeft.Hours == 0) ? $"{timeLeft.Minutes}" : $"{timeLeft.Hours}:{timeLeft.Minutes:00}";
+                            if (timeLeft.Hours != 0)
+                            {
+                                hourOrMinutes.Text = "год.";
+                            }
+                            else
+                            {
+                                hourOrMinutes.Text = "хв.";
+                            }
                         });
 
                         break;
@@ -73,6 +83,13 @@ namespace LessonsTimer
                                 mainNameLesson.Text = $"{lesson.Name} ";
                                 TimeSpan timeLeftToNextLesson = lesson.TimeStart - currentTimeSpan;
                                 mainEndLesson.Text = (timeLeftToNextLesson.Hours == 0) ? $"{timeLeftToNextLesson.Minutes}" : $"{timeLeftToNextLesson.Hours}:{timeLeftToNextLesson.Minutes:00}";
+                                if (timeLeftToNextLesson.Hours != 0)
+                                {
+                                    hourOrMinutes.Text = "год.";
+                                } else
+                                {
+                                    hourOrMinutes.Text = "хв.";
+                                }
                             });
                             break;
                         }
@@ -141,8 +158,8 @@ namespace LessonsTimer
                         nameLess.Text = lessonsTom[i].Name;
                         var timeSt = (Label)stackL.Children[2];
                         var timeEn = (Label)stackL.Children[4];
-                        timeSt.Text = lessonsTom[i].TimeStart.ToString();
-                        timeEn.Text = lessonsTom[i].TimeEnd.ToString();
+                        timeSt.Text = lessonsTom[i].TimeStart.ToString("HH:mm");
+                        timeEn.Text = lessonsTom[i].TimeEnd.ToString("HH:mm");
                         enabled--;
                         i++;
                     }
