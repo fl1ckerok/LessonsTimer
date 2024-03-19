@@ -111,27 +111,31 @@ namespace LessonsTimer
                 {
                     if (enabled == 0)
                     {
-                        frame.IsVisible = false;
+                        
+                        Device.BeginInvokeOnMainThread(() => frame.IsVisible = false);
                     }
                     else
                     {
                         if (!(lessons[i].TimeStart - currentTimeSpan < TimeSpan.Zero))
                         {
-                            frame.IsVisible = true;
-                            var stackL = (HorizontalStackLayout)frame.Content;
-                            var nameLess = (Label)stackL.Children[0];
-                            nameLess.Text = lessons[i].Name;
-                            var timeSt = (Label)stackL.Children[2];
-                            var timeEn = (Label)stackL.Children[4];
-                            timeSt.Text = lessons[i].TimeStart.ToString(@"hh\:mm");
-                            timeEn.Text = lessons[i].TimeEnd.ToString(@"hh\:mm");
-                            i++;
+                            Device.BeginInvokeOnMainThread(() => 
+                            {
+                                frame.IsVisible = true;
+                                var stackL = (HorizontalStackLayout)frame.Content;
+                                var nameLess = (Label)stackL.Children[0];
+                                nameLess.Text = lessons[i].Name;
+                                var timeSt = (Label)stackL.Children[2];
+                                var timeEn = (Label)stackL.Children[4];
+                                timeSt.Text = lessons[i].TimeStart.ToString(@"hh\:mm");
+                                timeEn.Text = lessons[i].TimeEnd.ToString(@"hh\:mm");
+                                i++;
+                            });
                         }
                         enabled--;
                     }
                 }
-                if (active == 0) NextLessonsTab.IsVisible = false;
-                else NextLessonsTab.IsVisible = true;
+                if (active == 0) Device.BeginInvokeOnMainThread(() => NextLessonsTab.IsVisible = false);
+                else Device.BeginInvokeOnMainThread(() => NextLessonsTab.IsVisible = true);
             }
             if ((GetTodayDay() + 1).ToString() != "Sunday" || (GetTodayDay() + 1).ToString() != "Saturday")
             {
@@ -152,20 +156,23 @@ namespace LessonsTimer
                     }
                     else
                     {
-                        frame.IsVisible = true;
-                        var stackL = (HorizontalStackLayout)frame.Content;
-                        Label nameLess = (Label)stackL.Children[0];
-                        nameLess.Text = lessonsTom[i].Name;
-                        var timeSt = (Label)stackL.Children[2];
-                        var timeEn = (Label)stackL.Children[4];
-                        timeSt.Text = lessonsTom[i].TimeStart.ToString(@"hh\:mm");
-                        timeEn.Text = lessonsTom[i].TimeEnd.ToString(@"hh\:mm");
-                        enabled--;
-                        i++;
+                        Device.BeginInvokeOnMainThread(() => 
+                        {
+                            frame.IsVisible = true;
+                            var stackL = (HorizontalStackLayout)frame.Content;
+                            Label nameLess = (Label)stackL.Children[0];
+                            nameLess.Text = lessonsTom[i].Name;
+                            var timeSt = (Label)stackL.Children[2];
+                            var timeEn = (Label)stackL.Children[4];
+                            timeSt.Text = lessonsTom[i].TimeStart.ToString(@"hh\:mm");
+                            timeEn.Text = lessonsTom[i].TimeEnd.ToString(@"hh\:mm");
+                            enabled--;
+                            i++;
+                        });
                     }
                 }
-                if (active == 0) TomorrowLessonsTab.IsVisible = false;
-                else TomorrowLessonsTab.IsVisible = true;
+                if (active == 0) Device.BeginInvokeOnMainThread(() => TomorrowLessonsTab.IsVisible = false);
+                else Device.BeginInvokeOnMainThread(() => TomorrowLessonsTab.IsVisible = true);
             }
         }
 
