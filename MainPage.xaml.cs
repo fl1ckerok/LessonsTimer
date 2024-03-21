@@ -1,4 +1,4 @@
-﻿using MetalKit;
+﻿//using MetalKit;
 using Microsoft.Maui.Controls;
 using System;
 using System.Linq.Expressions;
@@ -110,26 +110,26 @@ namespace LessonsTimer
                 active = enabled;
                 for (int i = 0; i < lessons.Count; i++)
                 {
+                    int index = i;
                     if (enabled == 0)
                     {
-
-                        Device.BeginInvokeOnMainThread(() => framesToday[i].IsVisible = false);
+                        Device.BeginInvokeOnMainThread(() => framesToday[index].IsVisible = false);
                     }
                     else
                     {
-                        if (!(lessons[i].TimeStart - currentTimeSpan < TimeSpan.Zero))
+                        if (!(lessons[index].TimeStart - currentTimeSpan < TimeSpan.Zero))
                         {
                             Device.BeginInvokeOnMainThread(() =>
                             {
-                                framesToday[i].IsVisible = true;
-                                var stackL = (HorizontalStackLayout)framesToday[i].Content;
+                                framesToday[index].IsVisible = true;
+                                var stackL = (HorizontalStackLayout)framesToday[index].Content;
                                 var nameLess = (Label)stackL.Children[0];
-                                var less_Name = lessons[i].Name;
+                                var less_Name = lessons[index].Name;
                                 nameLess.Text = less_Name;
                                 var timeSt = (Label)stackL.Children[2];
                                 var timeEn = (Label)stackL.Children[4];
-                                timeSt.Text = lessons[i].TimeStart.ToString(@"hh\:mm");
-                                timeEn.Text = lessons[i].TimeEnd.ToString(@"hh\:mm");
+                                timeSt.Text = lessons[index].TimeStart.ToString(@"hh\:mm");
+                                timeEn.Text = lessons[index].TimeEnd.ToString(@"hh\:mm");
                             });
                             enabled--;
                         }
@@ -148,29 +148,28 @@ namespace LessonsTimer
                     enabled++;
                 }
                 active = enabled;
-                for (int i = 0; i < lessonsTom.Count; i++)
+                for (int k = 0; k < lessonsTom.Count; k++)
                 {
+                    // Збереження локальної змінної для МейнТреду, який бере змінні посиланням.
+                    int index = k;
                     if (enabled == 0)
                     {
-                        framesTom[i].IsVisible = false;
+                        Device.BeginInvokeOnMainThread(() => framesTom[index].IsVisible = false);
                     }
                     else
                     {
-                        if (i < lessonsTom.Count)
+                        Device.BeginInvokeOnMainThread(() =>
                         {
-                            Device.BeginInvokeOnMainThread(() =>
-                            {
-                                framesTom[i].IsVisible = true;
-                                var stackL = (HorizontalStackLayout)framesTom[i].Content;
-                                var nameLess = (Label)stackL.Children[0];
-                                nameLess.Text = lessonsTom[i].Name;
-                                var timeSt = (Label)stackL.Children[2];
-                                var timeEn = (Label)stackL.Children[4];
-                                timeSt.Text = lessonsTom[i].TimeStart.ToString(@"hh\:mm");
-                                timeEn.Text = lessonsTom[i].TimeEnd.ToString(@"hh\:mm");
-                            });
-                            enabled--;
-                        }
+                            framesTom[index].IsVisible = true;
+                            var stackL = (HorizontalStackLayout)framesTom[index].Content;
+                            var nameLess = (Label)stackL.Children[0];
+                            nameLess.Text = lessonsTom[index].Name;
+                            var timeSt = (Label)stackL.Children[2];
+                            var timeEn = (Label)stackL.Children[4];
+                            timeSt.Text = lessonsTom[index].TimeStart.ToString(@"hh\:mm");
+                            timeEn.Text = lessonsTom[index].TimeEnd.ToString(@"hh\:mm");
+                        });
+                        enabled--;
                     }
                 }
                 if (active == 0) Device.BeginInvokeOnMainThread(() => TomorrowLessonsTab.IsVisible = false);

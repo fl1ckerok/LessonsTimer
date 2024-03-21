@@ -32,7 +32,7 @@
 
             </Frame>
 
-            <HorizontalStackLayout x:Name="NextLessonsTab" Margin="0,0,0,0" HorizontalOptions="Center">
+            <HorizontalStackLayout x:Name="NextLessonsTab" Margin="0,0,0,0" HorizontalOptions="Center" IsVisible="false">
                 <Frame CornerRadius="30" BackgroundColor="#D29292" HorizontalOptions="Center" Margin="0,30,0,7">
                     <Label HorizontalTextAlignment="Center" TextColor="Black" Text="Наступні пари" Margin="0,-15,0,0" />
                 </Frame>
@@ -78,7 +78,7 @@
                 </HorizontalStackLayout>
             </Frame>
 
-            <Frame x:Name="TomorrowLessonsTab" CornerRadius="30" BackgroundColor="#584D6F" HorizontalOptions="Center" Margin="-210,20,0,5">
+            <Frame x:Name="TomorrowLessonsTab" CornerRadius="30" BackgroundColor="#584D6F" HorizontalOptions="Center" Margin="-210,20,0,5" IsVisible="false">
                 <Label HorizontalTextAlignment="Center" TextColor="White" Text="Завтра" Margin="0,-15,0,0" />
             </Frame>
 
