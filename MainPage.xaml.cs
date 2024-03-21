@@ -47,6 +47,9 @@ namespace LessonsTimer
         private async Task RefreshPage(List<Lesson> lessons, List<Lesson> lessonsTom)
         {
             TimeSpan currentTimeSpan = GetTimeOfDay();
+            DateTime todayDateTime = DateTime.Today; // Поточна дата
+            DateTime tomorrowDateTime = todayDateTime.AddDays(1); // Додати один день
+            DayOfWeek tomorrow = tomorrowDateTime.DayOfWeek;
             if (GetTodayDay().ToString() != "Sunday" || GetTodayDay().ToString() != "Saturday")
             {
                 foreach (var lesson in lessons)
@@ -138,7 +141,7 @@ namespace LessonsTimer
                 if (active == 0) Device.BeginInvokeOnMainThread(() => NextLessonsTab.IsVisible = false);
                 else Device.BeginInvokeOnMainThread(() => NextLessonsTab.IsVisible = true);
             }
-            if ((GetTodayDay() + 1).ToString() != "Sunday" || (GetTodayDay() + 1).ToString() != "Saturday")
+            if (tomorrow.ToString() != "Sunday" || tomorrow.ToString() != "Saturday")
             {
                 List<Frame> framesTom = [TomL1, TomL2, TomL3, TomL4, TomL5];
                 int enabled = 0;
