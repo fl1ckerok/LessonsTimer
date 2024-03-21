@@ -1,4 +1,5 @@
-﻿using Microsoft.Maui.Controls;
+﻿using MetalKit;
+using Microsoft.Maui.Controls;
 using System;
 using System.Linq.Expressions;
 using System.Threading;
@@ -86,7 +87,8 @@ namespace LessonsTimer
                                 if (timeLeftToNextLesson.Hours != 0)
                                 {
                                     hourOrMinutes.Text = "год.";
-                                } else
+                                }
+                                else
                                 {
                                     hourOrMinutes.Text = "хв.";
                                 }
@@ -97,7 +99,6 @@ namespace LessonsTimer
                 }
                 int enabled = 0;
                 int active = 0;
-                int i = 0;
                 List<Frame> framesToday = [TodayL1, TodayL2, TodayL3, TodayL4];
                 foreach (var lesson in lessons)
                 {
@@ -107,31 +108,31 @@ namespace LessonsTimer
                     }
                 }
                 active = enabled;
-                foreach (var frame in framesToday)
+                for (int i = 0; i < lessons.Count; i++)
                 {
                     if (enabled == 0)
                     {
-                        
-                        Device.BeginInvokeOnMainThread(() => frame.IsVisible = false);
+
+                        Device.BeginInvokeOnMainThread(() => framesToday[i].IsVisible = false);
                     }
                     else
                     {
                         if (!(lessons[i].TimeStart - currentTimeSpan < TimeSpan.Zero))
                         {
-                            Device.BeginInvokeOnMainThread(() => 
+                            Device.BeginInvokeOnMainThread(() =>
                             {
-                                frame.IsVisible = true;
-                                var stackL = (HorizontalStackLayout)frame.Content;
+                                framesToday[i].IsVisible = true;
+                                var stackL = (HorizontalStackLayout)framesToday[i].Content;
                                 var nameLess = (Label)stackL.Children[0];
-                                nameLess.Text = lessons[i].Name;
+                                var less_Name = lessons[i].Name;
+                                nameLess.Text = less_Name;
                                 var timeSt = (Label)stackL.Children[2];
                                 var timeEn = (Label)stackL.Children[4];
                                 timeSt.Text = lessons[i].TimeStart.ToString(@"hh\:mm");
                                 timeEn.Text = lessons[i].TimeEnd.ToString(@"hh\:mm");
-                                i++;
                             });
+                            enabled--;
                         }
-                        enabled--;
                     }
                 }
                 if (active == 0) Device.BeginInvokeOnMainThread(() => NextLessonsTab.IsVisible = false);
@@ -142,33 +143,34 @@ namespace LessonsTimer
                 List<Frame> framesTom = [TomL1, TomL2, TomL3, TomL4, TomL5];
                 int enabled = 0;
                 int active = 0;
-                int i = 0;
                 foreach (var lesson in lessonsTom)
                 {
                     enabled++;
                 }
                 active = enabled;
-                foreach (var frame in framesTom)
+                for (int i = 0; i < lessonsTom.Count; i++)
                 {
                     if (enabled == 0)
                     {
-                        frame.IsVisible = false;
+                        framesTom[i].IsVisible = false;
                     }
                     else
                     {
-                        Device.BeginInvokeOnMainThread(() => 
+                        if (i < lessonsTom.Count)
                         {
-                            frame.IsVisible = true;
-                            var stackL = (HorizontalStackLayout)frame.Content;
-                            Label nameLess = (Label)stackL.Children[0];
-                            nameLess.Text = lessonsTom[i].Name;
-                            var timeSt = (Label)stackL.Children[2];
-                            var timeEn = (Label)stackL.Children[4];
-                            timeSt.Text = lessonsTom[i].TimeStart.ToString(@"hh\:mm");
-                            timeEn.Text = lessonsTom[i].TimeEnd.ToString(@"hh\:mm");
+                            Device.BeginInvokeOnMainThread(() =>
+                            {
+                                framesTom[i].IsVisible = true;
+                                var stackL = (HorizontalStackLayout)framesTom[i].Content;
+                                var nameLess = (Label)stackL.Children[0];
+                                nameLess.Text = lessonsTom[i].Name;
+                                var timeSt = (Label)stackL.Children[2];
+                                var timeEn = (Label)stackL.Children[4];
+                                timeSt.Text = lessonsTom[i].TimeStart.ToString(@"hh\:mm");
+                                timeEn.Text = lessonsTom[i].TimeEnd.ToString(@"hh\:mm");
+                            });
                             enabled--;
-                            i++;
-                        });
+                        }
                     }
                 }
                 if (active == 0) Device.BeginInvokeOnMainThread(() => TomorrowLessonsTab.IsVisible = false);

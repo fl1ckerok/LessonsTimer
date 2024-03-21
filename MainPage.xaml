@@ -38,7 +38,7 @@
                 </Frame>
             </HorizontalStackLayout>
 
-            <Frame x:Name="TodayL1" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0">
+            <Frame x:Name="TodayL1" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="false">
                 <HorizontalStackLayout Spacing="5" x:Name="NextL1">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
@@ -48,7 +48,7 @@
                 </HorizontalStackLayout>
             </Frame>
 
-            <Frame x:Name="TodayL2" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
+            <Frame x:Name="TodayL2" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0" IsVisible="false">
                 <HorizontalStackLayout Spacing="5" x:Name="NextL2">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
@@ -58,7 +58,7 @@
                 </HorizontalStackLayout>
             </Frame>
 
-            <Frame x:Name="TodayL3" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
+            <Frame x:Name="TodayL3" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0" IsVisible="false">
                 <HorizontalStackLayout Spacing="5" x:Name="NextL3">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
@@ -68,7 +68,7 @@
                 </HorizontalStackLayout>
             </Frame>
 
-            <Frame x:Name="TodayL4" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
+            <Frame x:Name="TodayL4" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0" IsVisible="false">
                 <HorizontalStackLayout Spacing="5" x:Name="NextL4">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
@@ -82,7 +82,7 @@
                 <Label HorizontalTextAlignment="Center" TextColor="White" Text="Завтра" Margin="0,-15,0,0" />
             </Frame>
 
-            <Frame x:Name="TomL1" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0">
+            <Frame x:Name="TomL1" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="false">
                 <HorizontalStackLayout Spacing="5" x:Name="TomorrowL1">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
@@ -91,7 +91,7 @@
                     <Label>TimeSpan</Label>
                 </HorizontalStackLayout>
             </Frame>
-            <Frame x:Name="TomL2" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
+            <Frame x:Name="TomL2" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0" IsVisible="false">
                 <HorizontalStackLayout Spacing="5" x:Name="TomorrowL2">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
@@ -100,7 +100,7 @@
                     <Label>TimeSpan</Label>
                 </HorizontalStackLayout>
             </Frame>
-            <Frame x:Name="TomL3" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
+            <Frame x:Name="TomL3" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0" IsVisible="false">
                 <HorizontalStackLayout Spacing="5" x:Name="TomorrowL3">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
@@ -109,7 +109,7 @@
                     <Label>TimeSpan</Label>
                 </HorizontalStackLayout>
             </Frame>
-            <Frame x:Name="TomL4" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0">
+            <Frame x:Name="TomL4" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0" IsVisible="false">
                 <HorizontalStackLayout Spacing="5" x:Name="TomorrowL4">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
@@ -118,7 +118,7 @@
                     <Label>TimeSpan</Label>
                 </HorizontalStackLayout>
             </Frame>
-            <Frame x:Name="TomL5" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,20">
+            <Frame x:Name="TomL5" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,20" IsVisible="false">
                 <HorizontalStackLayout Spacing="5" x:Name="TomorrowL5">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
