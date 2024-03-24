@@ -40,7 +40,7 @@ namespace LessonsTimer
             DateTime tomorrowDateTime = todayDateTime.AddDays(1); // Додати один день
             DayOfWeek tomorrow = tomorrowDateTime.DayOfWeek; // Отримати день тижня для завтрашньої дати
             var lessons = db.Lessons.Where(lesson => lesson.DayWeek == today.ToString() && lesson.Visible).ToList();
-            if (lessons.Count == 0) return;
+            //if (lessons.Count == 0) return;
             var lessonsTom = db.Lessons.Where(lesson => lesson.DayWeek == tomorrow.ToString() && lesson.Visible).ToList();
             timer = new Timer(async (state) => await RefreshPage(lessons, lessonsTom), null, TimeSpan.Zero, TimeSpan.FromMinutes(1));
         }
@@ -57,7 +57,7 @@ namespace LessonsTimer
                     // Current Time в межах пари.
                     if (currentTimeSpan >= lesson.TimeStart && currentTimeSpan <= lesson.TimeEnd)
                     {
-                        Device.BeginInvokeOnMainThread(() =>
+                        MainThread.BeginInvokeOnMainThread(() =>
                         {
                             startEnd.Text = "До кінця ";
                             mainNameLesson.Text = $"{lesson.Name} ";
@@ -81,7 +81,7 @@ namespace LessonsTimer
                     {
                         if (!(lesson.TimeEnd - currentTimeSpan <= TimeSpan.Zero))
                         {
-                            Device.BeginInvokeOnMainThread(() =>
+                            MainThread.BeginInvokeOnMainThread(() =>
                             {
                                 startEnd.Text = "До початку ";
                                 mainNameLesson.Text = $"{lesson.Name} ";
@@ -116,13 +116,13 @@ namespace LessonsTimer
                     int index = i;
                     if (enabled == 0)
                     {
-                        Device.BeginInvokeOnMainThread(() => framesToday[index].IsVisible = false);
+                        MainThread.BeginInvokeOnMainThread(() => framesToday[index].IsVisible = false);
                     }
                     else
                     {
                         if (!(lessons[index].TimeStart - currentTimeSpan < TimeSpan.Zero))
                         {
-                            Device.BeginInvokeOnMainThread(() =>
+                            MainThread.BeginInvokeOnMainThread(() =>
                             {
                                 framesToday[index].IsVisible = true;
                                 var stackL = (HorizontalStackLayout)framesToday[index].Content;
@@ -138,8 +138,8 @@ namespace LessonsTimer
                         }
                     }
                 }
-                if (active == 0) Device.BeginInvokeOnMainThread(() => NextLessonsTab.IsVisible = false);
-                else Device.BeginInvokeOnMainThread(() => NextLessonsTab.IsVisible = true);
+                if (active == 0) MainThread.BeginInvokeOnMainThread(() => NextLessonsTab.IsVisible = false);
+                else MainThread.BeginInvokeOnMainThread(() => NextLessonsTab.IsVisible = true);
             }
             if (tomorrow.ToString() != "Sunday" || tomorrow.ToString() != "Saturday")
             {
@@ -157,11 +157,11 @@ namespace LessonsTimer
                     int index = k;
                     if (enabled == 0)
                     {
-                        Device.BeginInvokeOnMainThread(() => framesTom[index].IsVisible = false);
+                        MainThread.BeginInvokeOnMainThread(() => framesTom[index].IsVisible = false);
                     }
                     else
                     {
-                        Device.BeginInvokeOnMainThread(() =>
+                        MainThread.BeginInvokeOnMainThread(() =>
                         {
                             framesTom[index].IsVisible = true;
                             var stackL = (HorizontalStackLayout)framesTom[index].Content;
@@ -175,8 +175,8 @@ namespace LessonsTimer
                         enabled--;
                     }
                 }
-                if (active == 0) Device.BeginInvokeOnMainThread(() => TomorrowLessonsTab.IsVisible = false);
-                else Device.BeginInvokeOnMainThread(() => TomorrowLessonsTab.IsVisible = true);
+                if (active == 0) MainThread.BeginInvokeOnMainThread(() => TomorrowLessonsTab.IsVisible = false);
+                else MainThread.BeginInvokeOnMainThread(() => TomorrowLessonsTab.IsVisible = true);
             }
         }
 
