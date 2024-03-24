@@ -32,14 +32,13 @@
 
             </Frame>
 
-            <!--Змінити тут маргін не від низу, а від верху-->
             <HorizontalStackLayout x:Name="NextLessonsTab" Margin="0,0,0,0" HorizontalOptions="Center" IsVisible="false">
-                <Frame CornerRadius="30" BackgroundColor="#D29292" HorizontalOptions="Center" Margin="0,30,0,7">
+                <Frame CornerRadius="30" BackgroundColor="#D29292" HorizontalOptions="Center" Margin="0,10,0,-25">
                     <Label HorizontalTextAlignment="Center" TextColor="Black" Text="Наступні пари" Margin="0,-15,0,0" />
                 </Frame>
             </HorizontalStackLayout>
 
-            <Frame x:Name="TodayL1" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,-30,20,0" IsVisible="false">
+            <Frame x:Name="TodayL1" CornerRadius="40" BackgroundColor="#BBA3EF" Margin="20,5,20,0" IsVisible="false">
                 <HorizontalStackLayout Spacing="5" x:Name="NextL1">
                     <Label>Name</Label>
                     <Label>Початок:</Label>
