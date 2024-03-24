@@ -32,6 +32,7 @@
 
             </Frame>
 
+            <!--Змінити тут маргін не від низу, а від верху-->
             <HorizontalStackLayout x:Name="NextLessonsTab" Margin="0,0,0,0" HorizontalOptions="Center" IsVisible="false">
                 <Frame CornerRadius="30" BackgroundColor="#D29292" HorizontalOptions="Center" Margin="0,30,0,7">
                     <Label HorizontalTextAlignment="Center" TextColor="Black" Text="Наступні пари" Margin="0,-15,0,0" />
