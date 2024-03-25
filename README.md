@@ -18,6 +18,8 @@ You can enter your schedule and the application **will make your life easier**.
 
 With it, you won't forget when you have to get up in the morning, or when you will be at so you don't miss the party after classes!
 
-### To download the latest version <a href="https://github.com/fl1ckerok/LessonsTimer/releases">go here</a>
+### To download the latest beta version <a href="https://github.com/fl1ckerok/LessonsTimer/releases">go here</a>
 
-LessonsTimer is licensed under the **<a href="https://github.com/fl1ckerok/LessonsTimer?tab=MIT-1-ov-file">MIT License</a>**.
+##### You are free to contribute to this project.
+
+###### LessonsTimer is licensed under the **<a href="https://github.com/fl1ckerok/LessonsTimer?tab=MIT-1-ov-file">MIT License</a>**.
